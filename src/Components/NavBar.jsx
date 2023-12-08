@@ -3,7 +3,7 @@ const NavBar = () => {
     return (
         <div className="bg-info navBar d-flex justify-content-between align-items-center px-5 py-2">
 
-            <Link href="messages" className="link">  
+            <Link href="/" className="link">  
              <div className="icon-main">
                 <i className="fa-solid fa-user-secret"></i>
             </div>
