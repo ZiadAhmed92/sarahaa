@@ -15,7 +15,7 @@ export default function CountContextProvider(props){
     let token = localStorage.getItem('token');
     let userData = jwtDecode(token);
     setUserdata(userData)
-console.log(userData)
+
   }
 
     return <CountContext.Provider value={{res,setRes,dataUser,userData}}>

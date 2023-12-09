@@ -3,7 +3,6 @@ import Link from "next/link"
 import { useContext } from "react"
 const NavBar = () => {
     let { res,setRes, userData } = useContext(CountContext)
-    console.log(res)
     return (
         <div className="bg-info navBar d-flex justify-content-between align-items-center px-5 py-2">
 

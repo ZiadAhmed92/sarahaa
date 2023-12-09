@@ -33,6 +33,13 @@ const Login = () => {
     try {
       const { data } = await axios.post("https://saraha874.onrender.com/users/signin", user);
       setRes(data)
+      if(res.message === 'login'){
+        router.push('/message');
+        console.log("tmm")
+        localStorage.setItem("token" , res.token)
+        dataUser()
+      
+      }
     } catch (err) {
       // setError(err)
       console.log(err)
@@ -50,15 +57,7 @@ const Login = () => {
     }
     else {
       signIn();
-      if(res.message == "login"){
-        router.push('/message');
-        localStorage.setItem("token" , res.token)
-        dataUser()
-      
-      }
-     
-      
-      
+    
     }
 
   }
@@ -87,7 +86,7 @@ const Login = () => {
           <input type="email" placeholder="Enter Your Email" className="input-name" name="email" onChange={getUserData} />
           <input type="password" placeholder="Enter Your Password" className="input-name" name="password" onChange={getUserData} />
           <div className="mt-1">
-            <button className=" btn-register mt-1" type="submit"> Login </button>
+            <button className=" btn-register mt-1" type="submit" > Login </button>
           </div>
         </form>
         <button className=" btn-register mt-3"> I Don't Have An Account </button>
