@@ -36,32 +36,29 @@ const Messages = () => {
     }
     function submitMessage(e) {
         e.preventDefault();
-        // if(message){
-        sendMessage()
-        // window.prompt("The message was sent successfully")
-        // }else{
-        //     window.prompt("Please write a message")
-        // }
+        if (message.message !== "") {
+            sendMessage()
+        }
+
 
     }
 
+
 // snackbar
-// const Alert = forwardRef(function Alert(props, ref) {
-//     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-//   });
-const [open, setOpen] = useState(false);
+    const [state, setState] = useState({
+        open: false,
+        vertical: 'top',
+        horizontal: 'center',
+    });
+    const { vertical, horizontal, open } = state;
 
-const handleClick = () => {
-  setOpen(true);
-};
+    const handleClick = (newState) => () => {
+        setState({ ...newState, open: true });
+    };
 
-const handleClose = (event, reason) => {
-  if (reason === 'clickaway') {
-    return;
-  }
-
-  setOpen(false);
-};
+    const handleClose = () => {
+        setState({ ...state, open: false });
+    };
 
     return (
         <div className="message-main">
@@ -74,13 +71,27 @@ const handleClose = (event, reason) => {
 
                 </textarea>
                 {/* <input type="text" name="message"  onChange={getUserData}/> */}
-                <button onClick={handleClick} type="submit" className="btn-send"><i className="text-info fa-regular fa-paper-plane"></i> Send</button>
+                <button onClick={handleClick({ vertical: 'top', horizontal: 'center' })} type="submit" className="btn-send"><i className="text-info fa-regular fa-paper-plane"></i> Send</button>
             </form>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="info" className="bg-info" sx={{ width: '100%' }}>
                     This is a success message!
                 </Alert>
-            </Snackbar>
+            </Snackbar> */}
+            {message.message !== "" ? <Snackbar
+                anchorOrigin={{ vertical, horizontal }}
+                open={open}
+                onClose={handleClose}
+                message="sent succesfully"
+                key={vertical + horizontal}
+            /> : <Snackbar
+                anchorOrigin={{ vertical, horizontal }}
+                open={open}
+                onClose={handleClose}
+                message="Please write a message"
+                key={vertical + horizontal}
+            />}
+
             {/* <button className="btn-send"><i className=" text-info fa-solid fa-share-nodes"></i> Share Profile </button> */}
 
         </div>

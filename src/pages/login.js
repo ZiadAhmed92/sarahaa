@@ -51,9 +51,10 @@ const Login = () => {
     else {
       signIn();
       if(res.message == "login"){
+        router.push('/message');
         localStorage.setItem("token" , res.token)
         dataUser()
-        router.push('/message');
+      
       }
      
       

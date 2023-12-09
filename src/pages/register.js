@@ -51,7 +51,7 @@ const Register = () => {
     }
     else {
       signUp();
-      // router.push('/login');
+      router.push('/login');
      
     }
 
@@ -82,7 +82,7 @@ const Register = () => {
           <input type="email" placeholder="Enter Your Email" className="input-name" name="email" onChange={getUserData} />
           <input type="password" placeholder="Enter Your password" className="input-name" name="password" onChange={getUserData} />
           <div className="mt-1">
-            <button className=" btn-register mt-1" type="submit"> Register </button>
+            <button className=" btn-register mt-1" > Register </button>
 
           </div>
 
