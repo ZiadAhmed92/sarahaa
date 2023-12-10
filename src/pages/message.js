@@ -34,11 +34,11 @@ const Message = () => {
   
      function getUrl(){
       // https://sarahaa.vercel.app/
-      setUrl(`http://localhost:3000/${userData?.userId}`)
+      setUrl(`https://sarahaa.vercel.app/${userData?.userId}`)
       console.log(url)
      }
   return (
-    
+
     <div className="message-main">
     <div className="m-auto bg-info">
       <Image src={img1} width={100} height={100} alt="img" />
