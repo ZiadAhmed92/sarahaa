@@ -35,7 +35,7 @@ const Login = () => {
       const { data } = await axios.post("https://saraha874.onrender.com/users/signin", user);
       console.log(data)
       setRes(data)
-      if(res?.message === 'login'){
+      if(res?.message == 'login'){
         router.push('/message');
         console.log("tmm")
         localStorage.setItem("token" , res.token)

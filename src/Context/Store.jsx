@@ -20,7 +20,7 @@ export default function CountContextProvider(props){
 
   }
 
-    return <CountContext.Provider value={{res,setRes,dataUser,userData,local}}>
+    return <CountContext.Provider value={{res,setRes,dataUser,userData,local,setLocal}}>
         {props.children}
     </CountContext.Provider>
 }
