@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sono:wght@200&display=swap');
+
  /* Scroll bar */
  ::-webkit-scrollbar {
   width: 0.7rem;
@@ -29,7 +31,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 body{
   background-color: antiquewhite;
@@ -39,6 +41,9 @@ overflow-x: auto;
 
 }
 /* NavBar */
+.navBar{
+  min-height: 70px;
+}
 .bg-nav{
 background-color:aqua ;
 
@@ -75,6 +80,17 @@ background-color:aqua ;
  .message-main{
  margin-top: 50px;
  }
+ .saraha{
+  
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform:translate(50%,-50%) ;
+  -webkit-transform:translate(50%,-50%) ;
+  -moz-transform:translate(50%,-50%) ;
+  -ms-transform:translate(50%,-50%) ;
+  -o-transform:translate(50%,-50%) ;
+}
  @media only screen and (max-width: 600px) {
   ::-webkit-scrollbar {
     width: 0.7rem;

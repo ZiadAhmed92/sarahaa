@@ -1,7 +1,7 @@
 import Image from "next/image"
 import img1 from "../../image/img1.jpg"
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Snackbar from '@mui/material/Snackbar';
@@ -34,6 +34,7 @@ const Messages = () => {
         }
 
     }
+
     function submitMessage(e) {
         e.preventDefault();
         if (message.message !== "") {
@@ -44,7 +45,7 @@ const Messages = () => {
     }
 
 
-// snackbar
+    // snackbar
     const [state, setState] = useState({
         open: false,
         vertical: 'top',
