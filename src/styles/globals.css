@@ -10,6 +10,7 @@ body{
 /* NavBar */
 .bg-nav{
 background-color:aqua ;
+
 }
 .ul-nav{
   gap: 20px;
@@ -56,7 +57,7 @@ background-color:aqua ;
     margin-top: 9px !important;
   }
   .navBar{
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 /* messages */
