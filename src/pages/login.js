@@ -35,16 +35,16 @@ const Login = () => {
       const { data } = await axios.post("https://saraha874.onrender.com/users/signin", user);
       console.log(data)
       setRes(data)
-      if(res?.message == 'login'){
+      if(data.message){
         router.push('/message');
-        console.log("tmm")
-        localStorage.setItem("token" , res.token)
+        console.log("login")
+        localStorage.setItem("token" , data.token)
         dataUser()
       
       }
     } catch (err) {
-      setError(err.response.data.message )
-      console.log(err.response.data.message       )
+      setError(err.response?.data.message )
+      console.log(err.response?.data.message       )
     }
 
   }
@@ -56,11 +56,16 @@ const Login = () => {
 
     if (validation.error) {
       setErrorList(validation.error.details);
-    }
-    else {
+    }else{
       signIn();
-    
     }
+   
+      
+      // router.push('/message');
+      //         localStorage.setItem("token" , res.token)
+        //  dataUser()
+      
+   
 
   }
   return (

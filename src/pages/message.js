@@ -9,7 +9,7 @@ import img1 from "../image/img1.jpg"
 const Message = () => {
     let [url, setUrl] = useState("");
     let [Messages, setMessages] = useState([]);
-    let {res:{token},userData,dataUser} = useContext(CountContext)
+    let {res,userData,dataUser} = useContext(CountContext)
 
    
     async function getMessages() {
