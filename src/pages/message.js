@@ -50,8 +50,8 @@ const Message = () => {
     {url?<Link   href={{
               pathname: `${url}`,
               query:{name:`${userData?.name}`} ,
-            }} className='  p-2 alert alert-primary text-danger'>{url}</Link>:""}
-    {Messages.map((mess,i)=><p key={i} className='w-50  p-2 alert alert-primary text-danger'>{mess.message}</p>)}
+            }} className='w-75 url p-2 alert alert-primary text-danger'>{url}</Link>:""}
+    {Messages.map((mess,i)=><p key={i} className='w-75  p-2 alert alert-primary text-danger'>{mess.message}</p>)}
   </div>
   </>
   )
