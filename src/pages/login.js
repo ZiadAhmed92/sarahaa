@@ -1,5 +1,6 @@
 import { CountContext } from "../Context/Store"
 import axios from "axios"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useContext, useState } from "react"
 const Login = () => {
@@ -32,8 +33,9 @@ const Login = () => {
   async function signIn() {
     try {
       const { data } = await axios.post("https://saraha874.onrender.com/users/signin", user);
+      console.log(data)
       setRes(data)
-      if(res.message === 'login'){
+      if(res?.message === 'login'){
         router.push('/message');
         console.log("tmm")
         localStorage.setItem("token" , res.token)
@@ -85,11 +87,12 @@ const Login = () => {
 
           <input type="email" placeholder="Enter Your Email" className="input-name" name="email" onChange={getUserData} />
           <input type="password" placeholder="Enter Your Password" className="input-name" name="password" onChange={getUserData} />
-          <div className="mt-1">
-            <button className=" btn-register mt-1" type="submit" > Login </button>
-          </div>
+         
+            <input type="submit" value="Login" className=" btn-register mt-2"/>
+            {/* <button className=" btn-register mt-1" type="submit" > Login </button> */}
+         
         </form>
-        <button className=" btn-register mt-3"> I Don't Have An Account </button>
+        <Link href='/register'> <button className=" btn-register mt-3"> I Don't Have An Account </button></Link>
         <h6 className="text-center"><a href="#" className="login-forgot">I Forgot My Password ?</a> </h6>
       </div>
     </div>

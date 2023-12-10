@@ -33,11 +33,12 @@ const Message = () => {
     }, [])
   
      function getUrl(){
-      
-      setUrl(`https://sarahaa.vercel.app/${userData?.userId}`)
+      // https://sarahaa.vercel.app/
+      setUrl(`http://localhost:3000/${userData?.userId}`)
       console.log(url)
      }
   return (
+    
     <div className="message-main">
     <div className="m-auto bg-info">
       <Image src={img1} width={100} height={100} alt="img" />
@@ -45,12 +46,12 @@ const Message = () => {
     <div className="message-area">
       <h2>{userData?.name}</h2>
     </div>
-    <button className="mb-2 btn-send"onClick={getUrl} ><i className=" text-info fa-solid fa-share-nodes"></i> Share Profile </button>
+    <button className="mb-2 btn-send" onClick={getUrl} ><i className=" text-info fa-solid fa-share-nodes"></i> Share Profile </button>
     {url?<Link   href={{
               pathname: `${url}`,
               query:{name:`${userData?.name}`} ,
             }} className='  p-2 alert alert-primary text-danger'>{url}</Link>:""}
-    {Messages.map(({message})=>{ return<p  className='w-50  p-2 alert alert-primary text-danger'>{message}</p>})}
+    {Messages.map(({message,i})=>{ return<p key={i} className='w-50  p-2 alert alert-primary text-danger'>{message}</p>})}
   </div>
   )
 }
