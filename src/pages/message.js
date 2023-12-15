@@ -7,6 +7,7 @@ import Link from "next/link"
 import img1 from "../image/img1.jpg"
 const Message = () => {
   let [url, setUrl] = useState("");
+  let [id, setID] = useState(0);
   let [Messages, setMessages] = useState([]);
   let { res, userData, dataUser } = useContext(CountContext)
 
@@ -19,16 +20,36 @@ const Message = () => {
         }
       });
       setMessages(data.messages)
+      // console.log(data.messages._id)
     } catch (err) {
       console.log(err)
     }
-
   }
+  async function deleteMessages(id) {
+    try {
+      let { data } = await axios.delete("https://saraha874.onrender.com/message", {
+        headers: {
+          'token': `${localStorage.getItem("token")}`,
+        },
+        data: {
+          id: id
+        }
+      });
+      
+      console.log(data)
+    } catch (err) {
+    
+      console.log(err)
+    }
+  }
+
+
   useEffect(() => {
     dataUser();
     getMessages()
-
-  }, [])
+  
+  }, [id])
+ 
 
   function getUrl() {
     // https://sarahaa.vercel.app/
@@ -49,7 +70,7 @@ const Message = () => {
           pathname: `${url}`,
           query: { name: `${userData?.name}` },
         }} className='w-75 url p-2 alert alert-primary text-danger'>{url}</Link> : ""}
-        {Messages.map((mess, i) => <p key={i} className='w-75 url p-2 alert alert-primary text-dark'>{mess.message}</p>)}
+        {Messages.map(({message,_id}, i) => <div key={i} className=' w-100 d-flex justify-content-center align-items-center '><p  className='w-75 url p-2 alert alert-primary text-dark'>{message}</p><i className="fa-solid fs-3 mb-3 ms-1 fa-trash"onClick={()=>{deleteMessages(_id);setID(1+id)}}></i></div>)}
       </div>
     </>
   )

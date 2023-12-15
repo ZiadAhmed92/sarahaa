@@ -10,7 +10,7 @@ export default function CountContextProvider(props){
 
   
   const [res, setRes] = useState({})
-  const[userData , setUserdata] = useState(null)
+  const[userData , setUserdata] = useState("")
   const[local ,setLocal]= useState("")
   function dataUser(){
     let token = localStorage.getItem('token');

@@ -148,6 +148,18 @@ background-color:aqua ;
   outline:none;
   border-color: blue;
 }
+.fa-trash{
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.669);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.fa-trash:hover{
+  color: rgb(255, 0, 0);
+}
 /* register */
 .icon-register{
   font-size: 5em;
@@ -224,4 +236,26 @@ background-color:aqua ;
 /* Login */
 .login-forgot{
   text-decoration: none;
+}
+/* profile */
+.newPassword{
+  padding: 5px;
+  border:1px solid #0DCAF0;
+}
+.newPassword:focus{
+
+ outline: none;
+}
+.btn-password{
+  padding: 5px;
+  border:1px solid #0DCAF0;
+  margin: 5px 0;
+  background: white;
+}
+.eya{
+  font-size: 1.3em;
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  cursor: pointer;
 }
