@@ -119,6 +119,15 @@ background-color:aqua ;
   align-items: center;
   justify-content: center;
 }
+.message{
+  width:60%;
+}
+.message-date{
+  width:95%;
+  display: flex;
+  justify-content: space-around;
+
+}
 .parent-message{
   width: 100%;
   display: flex;
@@ -238,6 +247,12 @@ background-color:aqua ;
 
 
 @media only screen and (max-width: 600px) {
+  .message{
+    width: 90%;
+  }
+  .date{
+   justify-content:  space-between !important;
+  }
   .message-area{
     padding: 10px;
   }

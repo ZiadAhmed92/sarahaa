@@ -83,12 +83,12 @@ const Message = () => {
         }} className='w-75 url p-2 alert alert-primary text-danger'>{url}</Link><i onClick={() => copyToClipboard(url)} className="fa-solid fs-3 mb-3 ms-1 fa-copy"></i></div> : ""}
         {Messages.map(({ message, createdAt, _id }, i) =>
           <div className='parent-message ' key={i}>
-            <div className='w-100 d-flex justify-content-center align-items-start '>
-              <p className='ms-3'>Date :</p>
-              <p className='w-75 '>{createdAt.slice(0,-8)}</p>
+            <div className='message-date px-2 date'>
+              <p className=''>Date :{createdAt.slice(0,-14)}</p>
+              <p className=''>Time :{createdAt.slice(11,-8)}</p>
             </div>
             <div className='w-100 d-flex justify-content-center align-items-center '>
-              <p className='w-75 url p-2 alert alert-primary text-dark'>{message}</p>
+              <p className='message url p-2 alert alert-primary text-dark'>{message}</p>
               <i className="fa-solid fs-3 mb-3 ms-1 fa-trash" onClick={() => { deleteMessages(_id); setID(1 + id) }}></i>
             </div>
           </div>)}
